@@ -41,8 +41,8 @@ const Tasks = () => {
   };
 
   return (
-    <div className="w-full px-10 py-16">
-      <div className="mb-6 flex w-full justify-between">
+    <div className="w-full space-y-6 px-10 py-16">
+      <div className="flex w-full justify-between">
         <div>
           <span className="text-xs font-semibold text-[#00ADB5]">
             Minhas Tarefas
