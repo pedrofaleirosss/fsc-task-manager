@@ -20,7 +20,7 @@ const Tasks = () => {
 
   const morningTasks = tasks.filter((task) => task.time === 'morning');
   const afternoonTasks = tasks.filter((task) => task.time === 'afternoon');
-  const nightTasks = tasks.filter((task) => task.time === 'night');
+  const eveningTasks = tasks.filter((task) => task.time === 'evening');
 
   const handleTaskCheckboxClick = (taskId) => {
     const newTasks = tasks.map((task) => {
@@ -119,7 +119,7 @@ const Tasks = () => {
         <div className="space-y-3">
           <TasksSeparator tittle="Noite" icon={<MoonIcon />} />
 
-          {nightTasks.map((task) => (
+          {eveningTasks.map((task) => (
             <TaskItem
               key={task.id}
               task={task}

@@ -31,14 +31,14 @@ const TASKS = [
     id: 5,
     title: 'Jantar',
     description: 'Preparar o jantar',
-    time: 'night',
+    time: 'evening',
     status: 'not_started',
   },
   {
     id: 6,
     title: 'Ler',
     description: 'Ler um livro antes de dormir',
-    time: 'night',
+    time: 'evening',
     status: 'not_started',
   },
 ];
