@@ -11,7 +11,7 @@ import TimeSelect from './TimeSelect';
 
 const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
   const [title, setTitle] = useState('');
-  const [time, setTime] = useState('morning');
+  const [time, setTime] = useState('');
   const [description, setDescription] = useState('');
 
   const nodeRef = useRef();
@@ -26,6 +26,10 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
   }, [isOpen]);
 
   const handleSaveClick = () => {
+    if (!title.trim() || !time.trim() || !description.trim()) {
+      return alert('Preencha todos os campos');
+    }
+
     handleSubmit({
       id: uuidv4(),
       title,
