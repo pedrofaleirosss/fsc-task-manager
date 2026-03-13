@@ -1,3 +1,4 @@
+import InputErrorMessage from './InputErrorMessage';
 import InputLabel from './InputLabel';
 
 const Input = ({ label, errorMessage, ...rest }) => {
@@ -10,9 +11,7 @@ const Input = ({ label, errorMessage, ...rest }) => {
         {...rest}
       />
 
-      {errorMessage && (
-        <p className="text-left text-xs text-red-500">{errorMessage}</p>
-      )}
+      {errorMessage && <InputErrorMessage>{errorMessage}</InputErrorMessage>}
     </div>
   );
 };
