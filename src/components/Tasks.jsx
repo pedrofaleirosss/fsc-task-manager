@@ -30,14 +30,20 @@ const Tasks = () => {
 
       if (task.status === 'not_started') {
         toast.success('Tarefa iniciada com sucesso!', {
-          style: { background: '#FFAA04', color: '#fff' },
+          style: {
+            background: 'var(--color-brand-process)',
+            color: 'var(--color-brand-white)',
+          },
         });
         return { ...task, status: 'in_progress' };
       }
 
       if (task.status === 'in_progress') {
         toast.success('Tarefa concluída com sucesso!', {
-          style: { background: '#00ADB5', color: '#fff' },
+          style: {
+            background: 'var(--color-brand-primary)',
+            color: 'var(--color-brand-white)',
+          },
         });
         return { ...task, status: 'done' };
       }
@@ -62,7 +68,10 @@ const Tasks = () => {
   const handleAddTaskSubmit = (task) => {
     setTasks([...tasks, task]);
     toast.success('Tarefa adicionada com sucesso!', {
-      style: { background: '#00ADB5', color: '#fff' },
+      style: {
+        background: 'var(--color-brand-primary)',
+        color: 'var(--color-brand-white)',
+      },
     });
   };
 
@@ -70,7 +79,7 @@ const Tasks = () => {
     <div className="w-full space-y-6 px-10 py-16">
       <div className="flex w-full justify-between">
         <div>
-          <span className="text-xs font-semibold text-[#00ADB5]">
+          <span className="text-brand-primary text-xs font-semibold">
             Minhas Tarefas
           </span>
           <h2 className="text-xl font-semibold">Minhas Tarefas</h2>

@@ -129,10 +129,20 @@
   }
 
   body {
-    @apply bg-[#f8f8f8];
+    @apply bg-brand-background;
   }
 }
 
 @theme {
   --font-sans: 'Poppins', sans-serif;
+  --color-brand-dark-blue: #35383e;
+  --color-brand-primary: #00adb5;
+  --color-brand-dark-gray: #818181;
+  --color-brand-text-gray: #9a9c9f;
+  --color-brand-light-gray: #eeeeee;
+  --color-brand-white: #ffffff;
+  --color-brand-background: #f8f8f8;
+  --color-brand-border: #ececec;
+  --color-brand-process: #ffaa04;
+  --color-brand-danger: #ef4444;
 }
