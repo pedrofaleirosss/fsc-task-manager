@@ -41,6 +41,13 @@
       "description": "Ler um livro antes de dormir",
       "time": "evening",
       "status": "not_started"
+    },
+    {
+      "id": "d8799332-5aee-4814-8e79-48afa6a17ba3",
+      "title": "Teste",
+      "time": "morning",
+      "description": "dsadadaa",
+      "status": "not_started"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
