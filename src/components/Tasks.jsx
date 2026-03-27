@@ -70,34 +70,6 @@ const Tasks = () => {
     queryClient.setQueryData(['tasks'], newTasks);
   };
 
-  const onDeleteTaskSuccess = async (taskId) => {
-    queryClient.setQueryData(['tasks'], (oldTasks) => {
-      return oldTasks.filter((task) => task.id !== taskId);
-    });
-    toast.success('Tarefa deletada com sucesso!');
-  };
-
-  const onTaskSubmitSuccess = async (task) => {
-    queryClient.setQueryData(['tasks'], (oldTasks) => {
-      return [...oldTasks, task];
-    });
-    toast.success('Tarefa adicionada com sucesso!', {
-      style: {
-        background: 'var(--color-brand-primary)',
-        color: 'var(--color-brand-white)',
-      },
-    });
-  };
-
-  const onTaskSubmitError = () => {
-    toast.error('Erro ao adicionar tarefa. Por favor, tente novamente.', {
-      style: {
-        background: 'var(--color-brand-danger)',
-        color: 'var(--color-brand-white)',
-      },
-    });
-  };
-
   return (
     <div className="w-full space-y-6 px-10 py-16">
       <div className="flex w-full justify-between">
@@ -121,8 +93,6 @@ const Tasks = () => {
           <AddTaskDialog
             isOpen={addTaskDialogIsOpen}
             handleClose={() => setAddTaskDialogIsOpen(false)}
-            onSubmitSuccess={onTaskSubmitSuccess}
-            onSubmitError={onTaskSubmitError}
           />
         </div>
       </div>
@@ -142,7 +112,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
@@ -161,7 +130,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
@@ -180,7 +148,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
