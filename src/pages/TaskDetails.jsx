@@ -69,7 +69,7 @@ const TaskDetailsPage = () => {
     deleteTask(undefined, {
       onSuccess: () => {
         toast.success('Tarefa deletada com sucesso!');
-        navigate('/');
+        navigate('/tasks');
       },
       onError: () => {
         toast.error('Occorreu um erro ao deletar a tarefa. Tente novamente.', {
@@ -99,7 +99,7 @@ const TaskDetailsPage = () => {
             </button>
 
             <div className="flex items-center gap-2 text-xs">
-              <Link className="text-brand-text-gray" to="/">
+              <Link className="text-brand-text-gray" to="/tasks">
                 Minhas Tarefas
               </Link>
               <ChevronRightIcon className="text-brand-text-gray" />
