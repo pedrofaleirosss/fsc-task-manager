@@ -15,11 +15,11 @@ import Input from './Input';
 import TimeSelect from './TimeSelect';
 
 const AddTaskDialog = ({ isOpen, handleClose }) => {
-  const { mutate: addTask } = useAddTask();
+  const { mutate: addTask, isPending } = useAddTask();
 
   const {
     register,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     handleSubmit,
     reset,
   } = useForm({
@@ -108,7 +108,7 @@ const AddTaskDialog = ({ isOpen, handleClose }) => {
                   label="Título"
                   placeholder="Título da tarefa"
                   errorMessage={errors?.title?.message}
-                  disabled={isSubmitting}
+                  disabled={isPending}
                   {...register('title', {
                     required: 'O título é obrigatório.',
                     validate: (value) => {
@@ -122,7 +122,7 @@ const AddTaskDialog = ({ isOpen, handleClose }) => {
 
                 <TimeSelect
                   errorMessage={errors?.time?.message}
-                  disabled={isSubmitting}
+                  disabled={isPending}
                   {...register('time', {
                     required: 'O horário é obrigatório.',
                   })}
@@ -133,7 +133,7 @@ const AddTaskDialog = ({ isOpen, handleClose }) => {
                   label="Descrição"
                   placeholder="Descreva a tarefa"
                   errorMessage={errors?.description?.message}
-                  disabled={isSubmitting}
+                  disabled={isPending}
                   {...register('description', {
                     required: 'A descrição é obrigatória.',
                     validate: (value) => {
@@ -159,9 +159,9 @@ const AddTaskDialog = ({ isOpen, handleClose }) => {
                     size="large"
                     className="w-full"
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isPending}
                   >
-                    {isSubmitting ? (
+                    {isPending ? (
                       <LoaderIcon className="text-brand-white h-5 w-5 animate-spin" />
                     ) : (
                       'Salvar'
