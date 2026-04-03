@@ -28,7 +28,7 @@ const HomePage = () => {
         <div className="grid grid-cols-4 gap-9">
           <DashboardCard
             icon={<Tasks2Icon />}
-            mainText={tasks.length}
+            mainText={tasks?.length}
             secondaryText="Tarefas disponíveis"
           />
 
