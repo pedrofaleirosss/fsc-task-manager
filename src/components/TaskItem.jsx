@@ -4,10 +4,14 @@ import { toast } from 'sonner';
 
 import { CheckIcon, DetailsIcon, LoaderIcon, TrashIcon } from '../assets/icons';
 import { useDeleteTask } from '../hooks/data/use-delete-task';
+import { useUpdateTask } from '../hooks/data/use-update-task';
 import Button from './Button';
 
-const TaskItem = ({ task, handleCheckboxClick }) => {
-  const { mutate: deleteTask, isPending } = useDeleteTask(task.id);
+const TaskItem = ({ task }) => {
+  const { mutate: deleteTask, isPending: deleteTaskIsLoading } = useDeleteTask(
+    task.id
+  );
+  const { mutate: updateTask } = useUpdateTask(task.id);
 
   const handleDeleteClick = async () => {
     deleteTask(undefined, {
@@ -23,6 +27,56 @@ const TaskItem = ({ task, handleCheckboxClick }) => {
         });
       },
     });
+  };
+
+  const getNewStatus = () => {
+    if (task.status === 'not_started') {
+      return 'in_progress';
+    }
+
+    if (task.status === 'in_progress') {
+      return 'done';
+    }
+
+    return 'not_started';
+  };
+
+  const handleCheckboxClick = () => {
+    updateTask(
+      { status: getNewStatus() },
+      {
+        onSuccess: () => {
+          if (getNewStatus() === 'done') {
+            toast.success('Tarefa concluída com sucesso!', {
+              style: {
+                background: 'var(--color-brand-primary)',
+                color: 'var(--color-brand-white)',
+              },
+            });
+          } else if (getNewStatus() === 'in_progress') {
+            toast.success('Tarefa iniciada com sucesso!', {
+              style: {
+                background: 'var(--color-brand-process)',
+                color: 'var(--color-brand-white)',
+              },
+            });
+          } else {
+            toast.success('Tarefa reiniciada com sucesso!');
+          }
+        },
+        onError: () => {
+          toast.error(
+            'Erro ao atualizar o status da tarefa. Por favor, tente novamente.',
+            {
+              style: {
+                background: 'var(--color-brand-danger)',
+                color: 'var(--color-brand-white)',
+              },
+            }
+          );
+        },
+      }
+    );
   };
 
   const getStatusClasses = () => {
@@ -51,7 +105,7 @@ const TaskItem = ({ task, handleCheckboxClick }) => {
             type="checkbox"
             checked={task.status === 'done'}
             className="absolute h-full w-full cursor-pointer opacity-8"
-            onChange={() => handleCheckboxClick(task.id)}
+            onChange={handleCheckboxClick}
           />
           {task.status === 'done' && <CheckIcon />}
           {task.status === 'in_progress' && (
@@ -63,8 +117,12 @@ const TaskItem = ({ task, handleCheckboxClick }) => {
       </div>
 
       <div className="flex items-center gap-2">
-        <Button color="ghost" onClick={handleDeleteClick} disabled={isPending}>
-          {isPending ? (
+        <Button
+          color="ghost"
+          onClick={handleDeleteClick}
+          disabled={deleteTaskIsLoading}
+        >
+          {deleteTaskIsLoading ? (
             <LoaderIcon className="text-brand-text-gray h-5 w-5 animate-spin" />
           ) : (
             <TrashIcon className="text-brand-text-gray h-5 w-5" />
@@ -87,7 +145,6 @@ TaskItem.propTypes = {
     time: PropTypes.oneOf(['morning', 'afternoon', 'evening']).isRequired,
     status: PropTypes.oneOf(['not_started', 'in_progress', 'done']).isRequired,
   }).isRequired,
-  handleCheckboxClick: PropTypes.func.isRequired,
 };
 
 export default TaskItem;
