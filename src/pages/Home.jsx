@@ -1,22 +1,11 @@
-import {
-  GlassWaterIcon,
-  LoaderIcon,
-  Tasks2Icon,
-  TasksIcon,
-} from '../assets/icons';
-import DashboardCard from '../components/DashboardCard';
+import DashboardCards from '../components/DashboardCards';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
+import TaskItem from '../components/TaskItem';
 import { useGetTasks } from '../hooks/data/use-get-tasks';
 
 const HomePage = () => {
   const { data: tasks } = useGetTasks();
-
-  // const notStartedTasks = tasks?.filter((task) => task.status === 'not_started').length;
-  const inProgressTasks = tasks?.filter(
-    (task) => task.status === 'in_progress'
-  ).length;
-  const doneTasks = tasks?.filter((task) => task.status === 'done').length;
 
   return (
     <div className="flex">
@@ -24,31 +13,30 @@ const HomePage = () => {
 
       <div className="w-full space-y-6 px-10 py-16">
         <Header title="Início" subtitle="Início" />
+        <DashboardCards />
 
-        <div className="grid grid-cols-4 gap-9">
-          <DashboardCard
-            icon={<Tasks2Icon />}
-            mainText={tasks?.length}
-            secondaryText="Tarefas disponíveis"
-          />
+        <div className="grid grid-cols-[1.5fr_1fr] gap-6">
+          <div className="bg-brand-white space-y-6 rounded-[10px] p-6">
+            <div>
+              <h3 className="text-xl font-semibold">Tarefas</h3>
+              <span className="text-brand-dark-gray text-sm">
+                Resumo das tarefas disponíveis
+              </span>
+            </div>
 
-          <DashboardCard
-            icon={<TasksIcon />}
-            mainText={doneTasks}
-            secondaryText="Tarefas concluídas"
-          />
+            <div className="space-y-3">
+              {tasks?.map((task) => (
+                <TaskItem key={task.id} task={task} />
+              ))}
+            </div>
+          </div>
 
-          <DashboardCard
-            icon={<LoaderIcon className="h-6 w-6" />}
-            mainText={inProgressTasks}
-            secondaryText="Tarefas em andamento"
-          />
-
-          <DashboardCard
-            icon={<GlassWaterIcon />}
-            mainText="40%"
-            secondaryText="Água"
-          />
+          <div className="bg-brand-white flex items-center justify-center space-y-6 rounded-[10px] p-20">
+            <p className="text-brand-dark-gray">
+              Cada pequena ação de hoje te aproxima das grandes conquistas de
+              amanhã. Faça o que precisa ser feito!
+            </p>
+          </div>
         </div>
       </div>
     </div>
