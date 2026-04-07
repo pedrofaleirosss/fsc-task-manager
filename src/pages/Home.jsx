@@ -24,6 +24,14 @@ const HomePage = () => {
               </span>
             </div>
 
+            {tasks?.length === 0 && (
+              <div className="flex h-50 items-center justify-center">
+                <p className="text-brand-dark-gray">
+                  Nenhuma tarefa cadastrada.
+                </p>
+              </div>
+            )}
+
             <div className="space-y-3">
               {tasks?.map((task) => (
                 <TaskItem key={task.id} task={task} />
