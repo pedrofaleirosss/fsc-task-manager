@@ -149,6 +149,23 @@ Durante o desenvolvimento deste projeto, foram trabalhados conceitos importantes
 
 ---
 
+## 🧾 Padrão de commits
+
+Ao longo do desenvolvimento, foi utilizado o padrão **Conventional Commits**, com todas as mensagens escritas em inglês.
+
+Isso ajudou a manter um histórico de commits mais organizado, legível e profissional, além de seguir boas práticas amplamente utilizadas no mercado.
+
+Exemplos:
+
+```
+feat: add task creation functionality
+fix: resolve task deletion bug
+refactor: improve component structure
+style: format code with prettier
+```
+
+---
+
 ## 👨‍💻 Autor
 
 Desenvolvido por [**Pedro Faleiros**](https://github.com/pedrofaleirosss) 🚀
