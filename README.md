@@ -1,16 +1,154 @@
-# React + Vite
+# 🧠 FSC Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web de gerenciamento de tarefas (Task Manager) desenvolvida com React durante a Formação em React do Full Stack Club.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Sobre o projeto
 
-## React Compiler
+Este projeto consiste em um **gerenciador de tarefas completo**, onde é possível criar, visualizar, editar e excluir tarefas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Apesar de ser um dos primeiros projetos da formação em React, ele foi essencial para:
 
-## Expanding the ESLint configuration
+- Reforçar fundamentos
+- Aprofundar conceitos importantes
+- Aprender novas ferramentas e boas práticas do ecossistema React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Acesse o projeto
+
+🌐 **Deploy (Vercel):**
+https://fsc-task-manager-gold.vercel.app/
+
+🔗 **API utilizada:**
+https://github.com/pedrofaleirosss/fsc-task-manager-api.git
+
+---
+
+## 🖼️ Preview do projeto
+
+### 🏠 Tela inicial
+
+<img width="1920" height="1038" alt="image" src="https://github.com/user-attachments/assets/103598e9-a541-4487-9129-469b6c42c8cf" />
+
+### 📋 Lista de tarefas
+
+<img width="1920" height="1037" alt="image" src="https://github.com/user-attachments/assets/32faadc6-8702-44b8-a6da-a1ceda880b8f" />
+
+
+### ➕ Criação de tarefa
+
+<img width="1920" height="1037" alt="image" src="https://github.com/user-attachments/assets/e48cf9a6-fcc7-4ac9-b489-5c43e38644ea" />
+
+### 🔍 Detalhes da tarefa
+
+<img width="1920" height="1036" alt="image" src="https://github.com/user-attachments/assets/1b57e4be-427d-47a8-805a-35886c2068f0" />
+
+---
+
+## ✨ Funcionalidades
+
+- ✅ Criar tarefas
+- ✏️ Editar tarefas
+- 🗑️ Deletar tarefas
+- 🧹 Deletar todas as tarefas
+- 📊 Dashboard com resumo:
+  - Total de tarefas
+  - Não iniciadas
+  - Em andamento
+  - Tarefas concluídas
+- 🔍 Visualizar detalhes de cada tarefa
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+### ⚛️ Frontend
+
+- React
+- Vite
+- React Router DOM
+- React Hook Form
+- React Query
+- Axios
+
+### 🎨 Estilização
+
+- Tailwind CSS
+- Tailwind Variants
+- Tailwind Merge
+
+### 🧰 Ferramentas e boas práticas
+
+- ESLint
+- Prettier
+- PropTypes
+- Hooks customizados
+- Design System
+- Controlled e Uncontrolled Inputs
+
+---
+
+## ▶️ Como rodar o projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/pedrofaleirosss/fsc-task-manager.git
+```
+
+### 2. Acesse a pasta
+
+```bash
+cd fsc-task-manager
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Rode o projeto
+
+```bash
+npm run dev
+```
+
+Aplicação disponível em:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🔌 Integração com API
+
+O projeto consome uma API REST construída com JSON Server.
+
+Você também pode rodar ela localmente.
+
+👉 **Link da API:** 
+https://github.com/pedrofaleirosss/fsc-task-manager-api.git
+
+---
+
+## 💡 Aprendizados
+
+Durante o desenvolvimento deste projeto, foram trabalhados conceitos importantes como:
+
+- ✅ Gerenciamento de estado com React
+- ✅ Consumo de APIs com React Query
+- ✅ Manipulação de formulários com React Hook Form
+- ✅ Criação de componentes reutilizáveis
+- ✅ Estruturação de um Design System
+- ✅ Organização e escalabilidade de código
+- ✅ Boas práticas com lint e formatação
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por [**Pedro Faleiros**](https://github.com/pedrofaleirosss) 🚀
